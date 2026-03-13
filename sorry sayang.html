@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Untuk Kamu ❤️</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+text-align:center;
+overflow:hidden;
+padding:20px;
+}
+
+.card{
+background:white;
+max-width:420px;
+width:100%;
+padding:30px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+position:relative;
+z-index:2;
+}
+
+h1{
+color:#ff4d6d;
+margin-bottom:10px;
+}
+
+p{
+line-height:1.7;
+font-size:16px;
+}
+
+.buttons{
+margin-top:20px;
+}
+
+button{
+padding:12px 20px;
+margin:8px;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.yes{
+background:#4CAF50;
+color:white;
+}
+
+.no{
+background:#ff4d4d;
+color:white;
+position:fixed;
+}
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:18px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10px);
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Baby ❤️</h1>
+
+<p>
+Semangat kuliahnya ya.<br><br>
+
+Maaf aku masih banyak kurangnya sebagai kekasih kamu.<br>
+Aku akan terus upgrade diri aku bersama Tuhan ✨<br><br>
+
+Terima kasih sudah selalu menerima aku sampai detik ini.<br><br>
+
+<b>Aku sayang kamu.</b><br><br>
+
+Kalau kamu? 🥺
+</p>
+
+<div class="buttons">
+<button class="yes" onclick="love()">Aku juga sayang ❤️</button>
+<button class="no" id="noBtn">Nggak</button>
+</div>
+
+</div>
+
+<script>
+
+function love(){
+alert("Aku tahu kok kamu sayang 😭❤️");
+alert("Terima kasih sudah tetap ada buat aku.");
+alert("Sekarang jangan marah lagi ya 😊");
+}
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("mouseover", moveButton);
+
+function moveButton(){
+
+const maxX = window.innerWidth - 100;
+const maxY = window.innerHeight - 50;
+
+const x = Math.random()*maxX;
+const y = Math.random()*maxY;
+
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000)
+
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
